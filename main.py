@@ -3,6 +3,7 @@ from selenium.webdriver.chromium import options
 from selenium.webdriver.chrome.service import Service
 import time
 
+
 def get_driver():
   options = webdriver.ChromeOptions()
   options.add_argument('disable-infobars')
@@ -16,6 +17,7 @@ def get_driver():
   driver.get('http://automated.pythonanywhere.com')
   return driver
 
+
 def clean_text(text):
   output = int(text.split(': ')[1])
   return output
@@ -24,7 +26,8 @@ def clean_text(text):
 def main():
   driver = get_driver()
   time.sleep(2)
-  element = driver.find_element(by='xpath', value='/html/body/div[1]/div/h1[2]')
+  element = driver.find_element(by='xpath',
+                                value='/html/body/div[1]/div/h1[2]')
   return clean_text(element.text)
 
 
